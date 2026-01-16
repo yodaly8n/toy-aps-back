@@ -3,7 +3,10 @@ package org.example.toyapsback.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -18,4 +21,8 @@ public class Job {
     String name;
     String description;
     boolean active;
+
+    @OneToMany(mappedBy = "job")
+    List<Task> tasks;
+
 }
